@@ -1,0 +1,11 @@
+build                   --verbose_failures
+build                   --ios_minimum_os=9.0
+
+build:ios_arm64         --platforms=@io_bazel_rules_go//go/toolchain:ios_arm64_cgo
+build:ios_arm64         --apple_platform_type=ios
+build:ios_arm64         --cpu=ios_arm64
+
+build:android_arm64     --crosstool_top=@androidndk//:toolchain-libcpp
+build:android_arm64     --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
+build:android_arm64     --platforms=@io_bazel_rules_go//go/toolchain:android_arm64_cgo
+build:android_arm64     --cpu=arm64-v8a
